@@ -63,7 +63,7 @@
           </div>
           <div class="flex-1 ml-4 bg-white rounded-md h-7 shadow-sm border border-slate-200 mx-4 text-xs flex items-center px-4 text-slate-400 font-medium tracking-wide">
             <LockIcon class="w-3 h-3 mr-2 opacity-50" />
-            localhost:5173
+            LMS MVP
           </div>
         </div>
 

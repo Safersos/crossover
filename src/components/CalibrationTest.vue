@@ -9,7 +9,7 @@
 
     <!-- Modals Layer for Exit -->
     <transition name="fade">
-      <div v-if="showConfirm" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-sm transition-all duration-300">
+      <div v-if="showConfirm" class="absolute inset-0 z-50 flex items-center justify-center p-4 bg-light-bg/80 dark:bg-dark-bg/80 backdrop-blur-sm transition-all duration-300">
         <div class="w-full max-w-sm bg-light-elevated dark:bg-dark-elevated rounded-2xl shadow-2xl border border-black/10 dark:border-white/10 p-6 transform transition-all">
           <h3 class="text-xl font-bold text-light-text dark:text-dark-text mb-2 tracking-tight">{{ isComplete || showAuditOnly ? 'Return to Dashboard?' : 'Exit Calibration?' }}</h3>
           <p class="text-sm text-light-dimmed dark:text-dark-dimmed mb-6">
@@ -69,32 +69,32 @@
           <!-- Active Question View -->
           <div v-else-if="!isComplete && currentQ" class="flex-1 flex flex-col w-full" key="question">
             
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12 mb-16 mt-8">
+            <div class="flex flex-row items-center justify-center space-x-2 md:space-x-12 mb-16 mt-8">
               <!-- Fraction A -->
-              <div class="flex flex-col items-center justify-center w-40 h-48 rounded-2xl bg-light-elevated dark:bg-dark-elevated shadow-lg border border-black/5 dark:border-white/5">
-                <span class="text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionA.numerator }}</span>
-                <div class="w-16 h-1 my-4 bg-light-dimmed dark:bg-dark-dimmed rounded-full"></div>
-                <span class="text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionA.denominator }}</span>
+              <div class="flex flex-col items-center justify-center w-24 h-32 md:w-40 md:h-48 rounded-2xl bg-light-elevated dark:bg-dark-elevated shadow-lg border border-black/5 dark:border-white/5">
+                <span class="text-xl md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionA.numerator }}</span>
+                <div class="w-8 md:w-16 h-1 my-2 md:my-4 bg-light-dimmed dark:bg-dark-dimmed rounded-full"></div>
+                <span class="text-xl md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionA.denominator }}</span>
               </div>
 
               <!-- Relational Toggle -->
-              <div class="flex md:flex-col space-x-4 md:space-x-0 md:space-y-4">
-                <button @click="handleAnswer('>')" :class="['w-14 h-14 rounded-full shadow-md flex items-center justify-center text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '>' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:text-white dark:hover:text-dark-bg hover:bg-light-primary dark:hover:bg-dark-primary']">></button>
-                <button @click="handleAnswer('=')" :class="['w-14 h-14 rounded-full shadow-md flex items-center justify-center text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '=' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:text-white dark:hover:text-dark-bg hover:bg-light-primary dark:hover:bg-dark-primary']">=</button>
-                <button @click="handleAnswer('<')" :class="['w-14 h-14 rounded-full shadow-md flex items-center justify-center text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '<' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:text-white dark:hover:text-dark-bg hover:bg-light-primary dark:hover:bg-dark-primary']"><</button>
+              <div class="flex flex-col space-y-2 md:space-y-4">
+                <button @click="handleAnswer('>')" :class="['w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md flex items-center justify-center text-xl md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '>' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:text-white dark:hover:text-dark-bg hover:bg-light-primary dark:hover:bg-dark-primary']">></button>
+                <button @click="handleAnswer('=')" :class="['w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md flex items-center justify-center text-xl md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '=' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:text-white dark:hover:text-dark-bg hover:bg-light-primary dark:hover:bg-dark-primary']">=</button>
+                <button @click="handleAnswer('<')" :class="['w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md flex items-center justify-center text-xl md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '<' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:text-white dark:hover:text-dark-bg hover:bg-light-primary dark:hover:bg-dark-primary']"><</button>
               </div>
 
               <!-- Fraction B -->
-              <div class="flex flex-col items-center justify-center w-40 h-48 rounded-2xl bg-light-elevated dark:bg-dark-elevated shadow-lg border border-black/5 dark:border-white/5">
-                <span class="text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionB.numerator }}</span>
-                <div class="w-16 h-1 my-4 bg-light-dimmed dark:bg-dark-dimmed rounded-full"></div>
-                <span class="text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionB.denominator }}</span>
+              <div class="flex flex-col items-center justify-center w-24 h-32 md:w-40 md:h-48 rounded-2xl bg-light-elevated dark:bg-dark-elevated shadow-lg border border-black/5 dark:border-white/5">
+                <span class="text-xl md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionB.numerator }}</span>
+                <div class="w-8 md:w-16 h-1 my-2 md:my-4 bg-light-dimmed dark:bg-dark-dimmed rounded-full"></div>
+                <span class="text-xl md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionB.denominator }}</span>
               </div>
             </div>
 
             <!-- Toast Layer -->
             <transition name="slide-up">
-              <div v-if="toast.visible" class="w-full max-w-2xl mx-auto rounded-xl p-5 border shadow-xl backdrop-blur-md @container"
+              <div v-if="toast.visible" class="absolute bottom-6 left-4 right-4 max-w-2xl mx-auto rounded-xl p-5 border shadow-xl backdrop-blur-md @container"
                 :class="[
                   toast.type.startsWith('correct') ? 'bg-light-success/10 dark:bg-dark-success/10 border-light-success/30 dark:border-dark-success/30' : 'bg-light-alert/10 dark:bg-dark-alert/10 border-light-alert/30 dark:border-dark-alert/30'
                 ]"
@@ -156,7 +156,7 @@
             <p class="text-xs text-light-dimmed dark:text-dark-dimmed text-center mb-8 font-mono uppercase tracking-widest">Fraction Comparisons · Session Complete</p>
 
             <!-- 3 Metric Cards -->
-            <div class="grid grid-cols-1 @md:grid-cols-3 gap-4 mb-6">
+            <div class="grid grid-cols-2 @md:grid-cols-3 gap-4 mb-6">
               <!-- Accuracy Ratio -->
               <div class="p-5 rounded-2xl bg-light-elevated/80 dark:bg-dark-elevated/80 border border-black/5 dark:border-white/5 flex items-center justify-between shadow-sm backdrop-blur-md">
                 <div>
@@ -178,7 +178,7 @@
               </div>
 
               <!-- Processing Velocity -->
-              <div class="p-5 rounded-2xl bg-light-elevated/80 dark:bg-dark-elevated/80 border border-black/5 dark:border-white/5 shadow-sm backdrop-blur-md">
+              <div class="p-5 rounded-2xl bg-light-elevated/80 dark:bg-dark-elevated/80 border border-black/5 dark:border-white/5 shadow-sm backdrop-blur-md col-span-2 @md:col-span-1">
                 <p class="text-xs font-medium text-light-dimmed dark:text-dark-dimmed uppercase tracking-widest font-mono mb-2">Processing Velocity</p>
                 <p class="text-3xl font-bold text-light-text dark:text-dark-text">{{ avgResponseTime }}s</p>
                 <p class="text-xs text-light-dimmed dark:text-dark-dimmed mt-1 font-mono">avg. response time</p>
@@ -210,7 +210,7 @@
               </div>
 
               <!-- Logic Gates Mastered -->
-              <div class="p-5 rounded-2xl bg-light-elevated/80 dark:bg-dark-elevated/80 border border-black/5 dark:border-white/5 shadow-sm backdrop-blur-md">
+              <div class="p-5 rounded-2xl bg-light-elevated/80 dark:bg-dark-elevated/80 border border-black/5 dark:border-white/5 shadow-sm backdrop-blur-md hidden @md:block">
                 <p class="text-xs font-medium text-light-dimmed dark:text-dark-dimmed uppercase tracking-widest font-mono mb-3">Logic Gates Mastered</p>
                 <ul class="space-y-1.5">
                   <li v-for="gate in logicGates" :key="gate.label" class="flex items-center space-x-2 text-sm">

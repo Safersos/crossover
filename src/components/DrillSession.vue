@@ -61,26 +61,26 @@
         <!-- Active Question -->
         <div v-else-if="!isComplete && currentQ" class="flex-1 flex flex-col w-full" key="question">
 
-          <div class="flex flex-row items-center justify-center space-x-2 md:space-x-12 mb-16 mt-8">
+          <div class="flex flex-row items-center justify-center space-x-2 @md:space-x-12 mb-16 mt-8">
             <!-- Fraction A -->
-            <div class="flex flex-col items-center justify-center w-24 h-32 md:w-40 md:h-48 rounded-2xl bg-light-elevated dark:bg-dark-elevated shadow-lg border border-black/5 dark:border-white/5">
-              <span class="text-xl md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionA.numerator }}</span>
-              <div class="w-8 md:w-16 h-1 my-2 md:my-4 bg-light-dimmed dark:bg-dark-dimmed rounded-full"></div>
-              <span class="text-xl md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionA.denominator }}</span>
+            <div class="flex flex-col items-center justify-center w-24 h-32 @md:w-40 @md:h-48 rounded-2xl bg-light-elevated dark:bg-dark-elevated shadow-lg border border-black/5 dark:border-white/5">
+              <span class="text-xl @md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionA.numerator }}</span>
+              <div class="w-8 @md:w-16 h-1 my-2 @md:my-4 bg-light-dimmed dark:bg-dark-dimmed rounded-full"></div>
+              <span class="text-xl @md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionA.denominator }}</span>
             </div>
 
             <!-- Relational Toggle -->
-            <div class="flex flex-col space-y-2 md:space-y-4">
-              <button @click="handleAnswer('>')" :class="['w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md flex items-center justify-center text-xl md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '>' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:bg-light-primary dark:hover:bg-dark-primary hover:text-white']">></button>
-              <button @click="handleAnswer('=')" :class="['w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md flex items-center justify-center text-xl md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '=' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:bg-light-primary dark:hover:bg-dark-primary hover:text-white']">=</button>
-              <button @click="handleAnswer('<')" :class="['w-10 h-10 md:w-14 md:h-14 rounded-full shadow-md flex items-center justify-center text-xl md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '<' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:bg-light-primary dark:hover:bg-dark-primary hover:text-white']"><</button>
+            <div class="flex flex-col space-y-2 @md:space-y-4">
+              <button @click="handleAnswer('>')" :class="['w-10 h-10 @md:w-14 @md:h-14 rounded-full shadow-md flex items-center justify-center text-xl @md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '>' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:bg-light-primary dark:hover:bg-dark-primary hover:text-white']">></button>
+              <button @click="handleAnswer('=')" :class="['w-10 h-10 @md:w-14 @md:h-14 rounded-full shadow-md flex items-center justify-center text-xl @md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '=' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:bg-light-primary dark:hover:bg-dark-primary hover:text-white']">=</button>
+              <button @click="handleAnswer('<')" :class="['w-10 h-10 @md:w-14 @md:h-14 rounded-full shadow-md flex items-center justify-center text-xl @md:text-2xl font-mono transition-all border border-black/5 dark:border-white/5', selectedAnswer === '<' ? 'bg-light-primary dark:bg-dark-primary text-white dark:text-dark-bg' : 'bg-light-elevated dark:bg-dark-elevated text-light-dimmed dark:text-dark-dimmed hover:bg-light-primary dark:hover:bg-dark-primary hover:text-white']"><</button>
             </div>
 
             <!-- Fraction B -->
-            <div class="flex flex-col items-center justify-center w-24 h-32 md:w-40 md:h-48 rounded-2xl bg-light-elevated dark:bg-dark-elevated shadow-lg border border-black/5 dark:border-white/5">
-              <span class="text-xl md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionB.numerator }}</span>
-              <div class="w-8 md:w-16 h-1 my-2 md:my-4 bg-light-dimmed dark:bg-dark-dimmed rounded-full"></div>
-              <span class="text-xl md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionB.denominator }}</span>
+            <div class="flex flex-col items-center justify-center w-24 h-32 @md:w-40 @md:h-48 rounded-2xl bg-light-elevated dark:bg-dark-elevated shadow-lg border border-black/5 dark:border-white/5">
+              <span class="text-xl @md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionB.numerator }}</span>
+              <div class="w-8 @md:w-16 h-1 my-2 @md:my-4 bg-light-dimmed dark:bg-dark-dimmed rounded-full"></div>
+              <span class="text-xl @md:text-5xl font-bold font-mono text-light-text dark:text-dark-text">{{ currentQ.fractionB.denominator }}</span>
             </div>
           </div>
 

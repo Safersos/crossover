@@ -86,7 +86,7 @@
 
           <!-- Toast -->
           <transition name="slide-up">
-            <div v-if="toast.visible" class="absolute bottom-6 left-4 right-4 max-w-2xl mx-auto rounded-xl p-5 border shadow-xl backdrop-blur-md @container"
+            <div v-if="toast.visible" class="absolute bottom-6 inset-x-4 @md:relative @md:inset-x-auto @md:bottom-auto @md:w-full max-w-2xl mx-auto rounded-xl p-5 border shadow-xl backdrop-blur-md @container"
               :class="toast.type.startsWith('correct') ? 'bg-light-success/10 dark:bg-dark-success/10 border-light-success/30 dark:border-dark-success/30' : 'bg-light-alert/10 dark:bg-dark-alert/10 border-light-alert/30 dark:border-dark-alert/30'"
             >
               <div class="flex items-start justify-between">
@@ -264,7 +264,7 @@ const accuracyGradient = computed(() => {
 // Drill label based on how many drills already saved
 const drillLabel = computed(() => {
   const count = session.value?.drills?.length ?? 0
-  return `Drill ${String.fromCharCode(65 + count)}` // A, B, C…
+  return count > 0 ? `Drill ${String.fromCharCode(64 + count)}` : 'Drill A'
 })
 
 const persistDrill = () => {
